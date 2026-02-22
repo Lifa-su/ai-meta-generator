@@ -666,6 +666,131 @@ footer{text-align:center;padding:30px 20px;color:var(--text2);font-size:.8rem;bo
 </div><!-- end main-layout -->
 </div><!-- end container -->
 
+<!-- Pro Features Section -->
+<style>
+.pro-section{max-width:1400px;margin:30px auto 0;padding:0 20px}
+.pro-header{text-align:center;margin-bottom:18px}
+.pro-header h2{font-size:1.3rem;color:var(--accent2);display:flex;align-items:center;justify-content:center;gap:8px}
+.pro-header p{color:var(--text2);font-size:.85rem;margin-top:4px}
+.pro-blur-wrap{position:relative;border-radius:12px;overflow:hidden;cursor:pointer;border:1px solid var(--border);transition:border-color .3s}
+.pro-blur-wrap:hover{border-color:var(--accent)}
+.pro-mock{filter:blur(4px);pointer-events:none;user-select:none;padding:24px;background:var(--card)}
+.pro-mock-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:600px){.pro-mock-row{grid-template-columns:1fr}}
+.pro-mock-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px}
+.pro-mock-card h4{font-size:.85rem;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.pro-mock-label{font-size:.75rem;color:var(--text2);margin-bottom:4px}
+.pro-mock-input{background:var(--input-bg);border:1px solid var(--border);border-radius:6px;padding:8px 10px;color:#555;font-size:.8rem;width:100%;margin-bottom:8px}
+.pro-mock-btn{background:var(--accent);color:#fff;border:none;border-radius:6px;padding:8px 16px;font-size:.8rem;opacity:.7;width:100%;margin-top:8px}
+.pro-mock-tag{display:inline-block;background:rgba(233,69,96,.12);color:var(--accent);padding:3px 10px;border-radius:4px;font-size:.75rem;margin:2px;font-weight:500}
+.pro-mock-score{display:inline-flex;align-items:center;gap:4px;font-size:.8rem;font-weight:600}
+.pro-mock-bar{height:6px;border-radius:3px;background:#2a2a4e;width:100px;display:inline-block;overflow:hidden;vertical-align:middle}
+.pro-mock-bar-fill{height:100%;border-radius:3px}
+.pro-mock-competitor{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--border);font-size:.8rem;color:#777}
+.pro-mock-competitor:last-child{border-bottom:none}
+.pro-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(26,26,46,.55);gap:8px}
+.pro-lock{font-size:2.5rem;filter:drop-shadow(0 0 20px rgba(233,69,96,.5))}
+.pro-overlay span:last-child{color:#ccc;font-size:.9rem;font-weight:500}
+.pro-modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(4px);padding:20px}
+.pro-modal{background:var(--card);border:1px solid var(--accent);border-radius:16px;padding:32px;max-width:420px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5);animation:proFadeIn .25s ease}
+@keyframes proFadeIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+.pro-modal h3{font-size:1.4rem;margin-bottom:6px;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--success));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pro-modal .pro-price{font-size:1.1rem;color:#888;margin-bottom:20px}
+.pro-modal ul{text-align:left;list-style:none;margin-bottom:24px;padding:0}
+.pro-modal ul li{padding:8px 0;border-bottom:1px solid var(--border);color:#ccc;font-size:.9rem;display:flex;align-items:center;gap:8px}
+.pro-modal ul li:last-child{border-bottom:none}
+.pro-modal ul li::before{content:'✅';font-size:.8rem}
+.pro-upgrade-btn{display:block;width:100%;padding:14px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:10px;font-size:1.05rem;font-weight:700;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s;margin-bottom:12px}
+.pro-upgrade-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(233,69,96,.4)}
+.pro-later-btn{background:none;border:none;color:#666;cursor:pointer;font-size:.85rem;padding:8px;transition:color .2s}
+.pro-later-btn:hover{color:#aaa}
+</style>
+
+<div class="pro-section">
+<div class="pro-header">
+<h2>🔒 Pro Features</h2>
+<p>AI-powered optimization, competitor analysis & batch generation</p>
+</div>
+<div class="pro-blur-wrap" onclick="document.getElementById('proModal').style.display='flex'">
+<div class="pro-mock">
+<div class="pro-mock-row">
+<div class="pro-mock-card">
+<h4>🤖 AI Optimization Suggestions</h4>
+<div class="pro-mock-label">SEO Score</div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+<span class="pro-mock-score" style="color:#4ecca3">87/100</span>
+<span class="pro-mock-bar"><span class="pro-mock-bar-fill" style="width:87%;background:linear-gradient(90deg,#4ecca3,#2ecc71)"></span></span>
+</div>
+<div class="pro-mock-label">Suggestions</div>
+<div style="font-size:.78rem;color:#666;line-height:1.6">
+⚡ Title could be 5 chars shorter for mobile<br>
+⚡ Add power words: "ultimate", "guide"<br>
+⚡ Description missing call-to-action<br>
+⚡ Consider adding FAQ schema markup
+</div>
+<div class="pro-mock-btn">Apply AI Suggestions</div>
+</div>
+<div class="pro-mock-card">
+<h4>🔍 Competitor Analysis</h4>
+<div class="pro-mock-label">Competitor URLs</div>
+<div class="pro-mock-input">https://competitor1.com</div>
+<div class="pro-mock-input">https://competitor2.com</div>
+<div class="pro-mock-competitor">🏆 competitor1.com <span class="pro-mock-score" style="color:#4ecca3">92</span> <span class="pro-mock-bar"><span class="pro-mock-bar-fill" style="width:92%;background:#4ecca3"></span></span></div>
+<div class="pro-mock-competitor">📊 competitor2.com <span class="pro-mock-score" style="color:#f0a500">74</span> <span class="pro-mock-bar"><span class="pro-mock-bar-fill" style="width:74%;background:#f0a500"></span></span></div>
+<div class="pro-mock-competitor">📄 your-page.com <span class="pro-mock-score" style="color:#e94560">61</span> <span class="pro-mock-bar"><span class="pro-mock-bar-fill" style="width:61%;background:#e94560"></span></span></div>
+<div class="pro-mock-btn">Analyze & Compare</div>
+</div>
+</div>
+<div class="pro-mock-card" style="width:100%">
+<h4>⚡ Batch Page Generation</h4>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+<span class="pro-mock-tag">/ (homepage)</span>
+<span class="pro-mock-tag">/about</span>
+<span class="pro-mock-tag">/pricing</span>
+<span class="pro-mock-tag">/blog</span>
+<span class="pro-mock-tag">/contact</span>
+<span class="pro-mock-tag">+ Add page</span>
+</div>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<div style="flex:1;min-width:200px">
+<div class="pro-mock-label">Template</div>
+<div class="pro-mock-input">{{siteName}} — {{pageTitle}} | {{keyword}}</div>
+</div>
+<div style="flex:1;min-width:200px">
+<div class="pro-mock-label">Export Format</div>
+<div style="display:flex;gap:6px">
+<span class="pro-mock-tag">HTML</span>
+<span class="pro-mock-tag">JSON-LD</span>
+<span class="pro-mock-tag">CSV</span>
+</div>
+</div>
+</div>
+<div class="pro-mock-btn">Generate Meta Tags for All Pages (5)</div>
+</div>
+</div>
+<div class="pro-overlay">
+<span class="pro-lock">🔒</span>
+<span>Click to unlock Pro features</span>
+</div>
+</div>
+</div>
+
+<div id="proModal" class="pro-modal-bg" style="display:none" onclick="if(event.target===this)this.style.display='none'">
+<div class="pro-modal">
+<h3>🏷️ Meta Generator Pro</h3>
+<p class="pro-price">One-time purchase — $14</p>
+<ul>
+<li>AI-powered SEO optimization suggestions & scoring</li>
+<li>Competitor meta tag analysis & comparison</li>
+<li>Batch generation for multiple pages at once</li>
+<li>Export to HTML, JSON-LD, and CSV formats</li>
+<li>Priority support & future updates</li>
+</ul>
+<a href="https://feifeicch.gumroad.com/l/ai-meta-generator-pro" target="_blank" class="pro-upgrade-btn">Upgrade to Pro — $14</a>
+<button class="pro-later-btn" onclick="document.getElementById('proModal').style.display='none'">Maybe later</button>
+</div>
+</div>
+
 <footer>
 <p>AI Meta Tag Generator &mdash; Generate perfect meta tags for SEO &amp; social media sharing</p>
 <p style="margin-top:8px">Built with &#10084;&#65039; for developers and content creators</p>
